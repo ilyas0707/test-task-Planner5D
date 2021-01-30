@@ -1,0 +1,137 @@
+.header
+    height: rem(60px)
+    display: flex
+    align-items: center
+    background: #f5f7f8
+    border-bottom: 1px solid #dee5e8
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 7
+    &__block
+        display: flex
+        align-items: center
+    &__menu
+        width: calc(100% - 120px)
+        +laptop
+            display: flex
+            justify-content: flex-end
+    &__nav
+        display: flex
+        justify-content: space-between
+        margin-left: rem(24px)
+        +laptop
+            display: none
+
+.header__nav.active
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-start
+    width: rem(320px)
+    height: 100vh
+    margin-left: 0
+    padding-top: 60px
+    background: rgba(255, 255, 255, .95)
+    box-shadow: 0px 0px 10px 0px #ccc
+    position: fixed
+    top: 0
+    right: 0
+    z-index: 6
+    .nav__list
+        width: 100%
+        flex-direction: column
+        border-top: 1px solid whitesmoke
+        .nav__item > a
+            width: 100%
+            padding: 8px 16px
+            transition: all .3s
+
+        .nav__item > a:hover
+            background: transparent
+            color: $color
+    .flex-row
+        flex-direction: row
+
+.menu__link
+    width: rem(120px)
+    height: rem(60px)
+    display: grid
+    place-items: center
+    color: #363636
+    fill: $color
+    transition: none
+    &:hover
+        color: $color
+    .menu__image
+        width: rem(120px)
+        min-width: rem(120px)
+        height: rem(32px)
+        color: inherit
+        fill: inherit
+
+.nav__list
+    display: flex
+    .nav__link
+        display: flex
+        align-items: center
+        justify-content: space-between
+        text-align: center
+        height: rem(60px)
+        padding: 8px 16px
+        color: #363636
+        &:hover
+            background: #e6ebee
+        .link__span
+            background: $color
+            color: #fff
+            text-transform: uppercase
+            font-size: rem(11px)
+            padding: 2px 6px
+            border-radius: 5px
+            margin-left: rem(12px)
+        .arrow
+            font-size: rem(24px)
+            transform: translateX(8px)
+        .circle
+            font-size: rem(35px)
+            color: #4D9B62
+
+.hamburger
+    width: 30px
+    height: 30px
+    display: none
+    flex-direction: column
+    align-items: center
+    justify-content: space-evenly
+    cursor: pointer
+    z-index: 6
+    +laptop
+        display: flex
+    &__line
+        height: 2px
+        width: 80%
+        background: #000
+        border-radius: 6px
+        transition: all .3s
+
+.hamburger.active 
+    .hamburger__line:nth-child(1)
+        transform: rotate(45deg) translate(6px, 5px)
+
+.hamburger.active
+    .hamburger__line:nth-child(2)
+        opacity: 0
+
+.hamburger.active
+    .hamburger__line:nth-child(3)
+        transform: rotate(-45deg) translate(6px, -5.5px)
+
+@media screen and (max-width: 320px)
+    .header__nav.active
+        width: 100%
+        .flex-row
+            flex-wrap: wrap

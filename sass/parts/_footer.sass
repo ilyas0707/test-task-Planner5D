@@ -1,0 +1,41 @@
+.footer
+    flex-shrink: 0
+    &__block
+        border-top: 1px solid #e8e8e8
+    &__links
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        padding: 20px 0 0 0
+    &__column
+        min-width: 180px
+        padding-right: 10px
+        padding-bottom: 20px
+        .column__title
+            font-size: rem(18px)
+            font-weight: 600
+            margin-bottom: rem(15px)
+        .column__item
+            margin-bottom: rem(10px)
+            .column__link
+                color: #6d6d6d
+                &:hover
+                    color: $color
+    &__copyright
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 20px 0
+        border-top: 1px solid #e8e8e8
+        +tablet
+            align-items: flex-start
+            flex-direction: column-reverse
+        .copyright__text
+            font-size: 14px
+            +tablet
+                width: 100%
+                &:nth-child(2)
+                    padding: 0 0 20px 0
+                &:nth-child(1)
+                    padding: 20px 0 0 0
+                    border-top: 1px solid #e8e8e8
